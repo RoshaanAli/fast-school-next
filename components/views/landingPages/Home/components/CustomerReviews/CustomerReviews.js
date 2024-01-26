@@ -23,27 +23,56 @@ const CustomerReviews = () => {
         },
     ];
     // const [reviews, setReviews] = useState([])
-    useEffect(async () => {
+    const getReviews = async () => {
         try {
-            // setIsLoading(true);
-            const response = await fetch(`${link}/reviews`, {
+            var requestOptions = {
                 method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await response.json();
-            console.log("=============",data)
-            // setReviews(data)
+                redirect: 'follow'
+              };
+              
+              fetch("https://2896-61-5-135-226.ngrok-free.app/reviews", requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            // const response = await fetch(`${link}/reviews`, {
+            //     method: 'GET',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // });
+            // console.log(response.body,"----")
+            // const data = await response.json();
         } catch (error) {
             console.log(error);
-            toast.error('Qualcosa è andato storto, riprova più tardi.')
+            // toast.error('Qualcosa è andato storto, riprova più tardi.')
             // setIsLoading(false);
         } finally {
             // setIsLoading(false);
         }
+    }
+    useEffect(() => {
+        console.log(link)
+        getReviews()
+        // try {
+        //     // setIsLoading(true);
+        //     const response = await fetch(`${link}/reviews`, {
+        //         method: 'GET',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         }
+        //     });
+        //     const data = await response.json();
+        //     console.log("=============",data)
+        //     // setReviews(data)
+        // } catch (error) {
+        //     console.log(error);
+        //     toast.error('Qualcosa è andato storto, riprova più tardi.')
+        //     // setIsLoading(false);
+        // } finally {
+        //     // setIsLoading(false);
+        // }
     }, [])
-    
+
 
     return (
         <section className="flex flex-wrap justify-center gap-4 p-6">
