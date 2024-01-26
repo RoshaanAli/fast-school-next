@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const CustomerReviews = () => {
+    const [defaultData, setDefaultData] = useState([])
     const dtReview = [
         {
             customerName: "Paolo R",
@@ -28,23 +29,15 @@ const CustomerReviews = () => {
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
-              };
-              
-              fetch("https://2896-61-5-135-226.ngrok-free.app/reviews", requestOptions)
+            };
+
+            fetch(`${link}/reviews`, requestOptions)
                 .then(response => response.json())
-                .then(result => console.log(result))
+                .then(result => setDefaultData(result))
                 .catch(error => console.log('error', error));
-            // const response = await fetch(`${link}/reviews`, {
-            //     method: 'GET',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // });
-            // console.log(response.body,"----")
-            // const data = await response.json();
         } catch (error) {
             console.log(error);
-            // toast.error('Qualcosa è andato storto, riprova più tardi.')
+            toast.error('Qualcosa è andato storto, riprova più tardi.')
             // setIsLoading(false);
         } finally {
             // setIsLoading(false);
@@ -53,30 +46,12 @@ const CustomerReviews = () => {
     useEffect(() => {
         console.log(link)
         getReviews()
-        // try {
-        //     // setIsLoading(true);
-        //     const response = await fetch(`${link}/reviews`, {
-        //         method: 'GET',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        //     });
-        //     const data = await response.json();
-        //     console.log("=============",data)
-        //     // setReviews(data)
-        // } catch (error) {
-        //     console.log(error);
-        //     toast.error('Qualcosa è andato storto, riprova più tardi.')
-        //     // setIsLoading(false);
-        // } finally {
-        //     // setIsLoading(false);
-        // }
     }, [])
 
 
     return (
         <section className="flex flex-wrap justify-center gap-4 p-6">
-            {dtReview.map((review, index) => (
+            {defaultData.map((review, index) => (
                 <div
                     key={index}
                     className="max-w-xs rounded-lg px-6 py-10 border border-gray-300 shadow-sm shadow-gray-400"
@@ -89,8 +64,8 @@ const CustomerReviews = () => {
                             height={100}
                             className="rounded-full shadow-sm shadow-slate-900"
                         />
-                        <h3 className="text-2xl font-semibold mt-4 uppercase text-center text-black">{review.customerName}</h3>
-                        <p className="text-black mt-2 uppercase text-center">{review.customerReview}</p>
+                        <h3 className="text-2xl font-semibold mt-4 uppercase text-center text-black">{review.message}</h3>
+                        <p className="text-black mt-2 uppercase text-center">{review.user_name}</p>
                     </div>
                 </div>
             ))}
