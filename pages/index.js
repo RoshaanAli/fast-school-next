@@ -36,6 +36,8 @@ export default function HomePage() {
             <meta name="description" content="Fast school info" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
+            <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
+            <script src="bower_components/aos/dist/aos.js"></script> 
         </Head>
         <WithLayout
             component={Home}

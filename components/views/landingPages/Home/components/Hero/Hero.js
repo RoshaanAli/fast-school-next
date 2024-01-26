@@ -23,7 +23,8 @@ const Hero = () => {
 
     return (
         <section 
-            className="flex flex-col items-center justify-center max-w-3xl mx-auto pt-10 gap-2"
+            className="flex flex-col items-center justify-center max-w-3xl mx-auto pt-10 gap-2"      data-aos-delay="50" data-aos-duration="1000"
+            data-aos-easing="ease-in-sine" data-aos="zoom-out-up" data-aos-once="false"
         >
             <h1 className="lg:text-4xl text-2xl font-bold text-center text-black">
                 Semplifica la scuola <span className="text-[#2796e5]">con un clic</span>

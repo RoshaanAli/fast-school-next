@@ -43,14 +43,14 @@ const Contact = () => {
 
     return (
         <section
-            className="flex flex-col items-center justify-center max-w-lg mx-auto pt-10 gap-[4rem]"
-            id="contact"
+            className="flex flex-col items-center justify-center max-w-lg mx-auto pt-10 gap-[4rem] bg-[#ffffff12] lg:h-[490px]"
+            id="formSec"
         >
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col items-center justify-center gap-4 mt-2 w-full">
                 <input
                     onChange={(e) => setName(e.target.value)}
                     value={name}
-                    type="name"
+                    type="text"
                     placeholder="Nome"
                     className="text-black lg:text-lg text-sm bg-transparent uppercase rounded-[100px] px-4 py-3 border border-[#000] focus:outline-none w-full"
                 />
@@ -65,7 +65,7 @@ const Contact = () => {
                     onChange={(e) => setMessage(e.target.value)}
                     value={message}
                     placeholder="Messaggio"
-                    className="text-black lg:text-lg text-sm bg-transparent uppercase rounded-[20px] px-4 py-3 border border-[#000] focus:outline-none w-full resize-none"
+                    className=""
                     rows={10}
                 />
                 <button

@@ -5,7 +5,8 @@ const UsageGuide = () => {
                 className="flex lg:flex-row flex-col items-center justify-between max-w-5xl mx-auto gap-4 p-6 rounded-2xl border border-gray-300 shadow-lg shadow-slate-600"
             >
                 <div className="lg:w-[40%] w-[90%] max-w-[20rem] min-h-[15rem] border border-gray-400 rounded-md"></div>
-                <div className="flex flex-col p-4 lg:w-[70%] w-full">
+                <div className="flex flex-col p-4 lg:w-[70%] w-full"      data-aos-delay="50" data-aos-duration="1000"
+					data-aos-easing="ease-in-sine" data-aos="flip-down" data-aos-once="false">
                     <h1 className="lg:text-4xl text-2xl font-bold text-center text-black capitalize">
                         Come utilizzare FastSchool
                     </h1>
@@ -18,7 +19,11 @@ const UsageGuide = () => {
                 className="flex lg:flex-row-reverse flex-col items-center justify-between max-w-5xl mx-auto gap-4 p-6 rounded-2xl border border-gray-300 shadow-lg shadow-slate-600"
             >
                 <div className="lg:w-[40%] w-[90%] min-h-[15rem] border border-gray-400 rounded-md"></div>
-                <div className="flex flex-col p-4 lg:w-[70%] w-full">
+                <div className="flex flex-col p-4 lg:w-[70%] w-full" 
+                data-aos-delay="50" data-aos-duration="1000"
+					data-aos-easing="ease-in-sine" data-aos="fade-right" data-aos-once="false"
+                    
+                    >
                     <h1 className="lg:text-4xl text-2xl font-bold text-center text-black capitalize">
                         Cosa fa FastSchool
                     </h1>
