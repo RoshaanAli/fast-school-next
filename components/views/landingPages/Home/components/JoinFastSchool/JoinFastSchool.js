@@ -33,7 +33,6 @@ const JoinFastSchool = () => {
         if (router.pathname === '/') {
             router.push('/signup');
         }
-
         try {
             // const response = await fetch(`/api/subscribe?lookup_key=${selectedPlan}?user_id=${user?.user_id}`, {
             //     method: 'POST',
@@ -50,14 +49,38 @@ const JoinFastSchool = () => {
             }
 
             const data = await response.json();
-            console.log(data);
+            console.log(data,"------------------------");
             const { session_url } = data;
             
             window.location.href = session_url;
         } catch (error) {
-            console.log(error);
+            console.log(error,"pp");
             toast.error('Something went wrong, please try again later.');
         }
+        // try {
+        //     // const response = await fetch(`/api/subscribe?lookup_key=${selectedPlan}?user_id=${user?.user_id}`, {
+        //     //     method: 'POST',
+        //     // });
+        //     // send both lookup_key and user_id as query params
+        //     const response = await fetch(`/api/subscribe/${selectedPlan}/${user?.user_id}`, {
+        //         method: 'POST',
+        //     });
+
+        //     if (response.status !== 200) {
+        //         const data = await response.json();
+        //         toast.error(data.message);
+        //         return;
+        //     }
+
+        //     const data = await response.json();
+        //     console.log(data);
+        //     const { session_url } = data;
+            
+        //     window.location.href = session_url;
+        // } catch (error) {
+        //     console.log(error);
+        //     toast.error('Something went wrong, please try again later.');
+        // }
     };
 
     return (
